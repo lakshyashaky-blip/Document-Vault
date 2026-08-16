@@ -219,3 +219,5 @@ authorization boundary as the rest of the app.
   hit daily limits under heavy use.
 - No full-text keyword search across documents, only semantic RAG search.
 - No folders/tags for organizing a large library.
+#   D o c u m e n t - V a u l t  
+ 
