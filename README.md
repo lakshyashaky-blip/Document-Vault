@@ -10,6 +10,10 @@ and multi-provider LLM support so it runs entirely on free API tiers if you want
 <p>
   <img src="docs/screenshots/signup.png" alt="Sign up screen" width="420">
   <img src="docs/screenshots/library.png" alt="Document library view" width="420">
+  <img src="docs/screenshots/landingpage.png" alt="landing page view" width="420">
+  <img src="docs/screenshots/featurepage.png" alt="feature page view" width="420">
+  <img src="docs/screenshots/askandanswer.png" alt="Document library view" width="420">
+  
 </p>
 
 ---
