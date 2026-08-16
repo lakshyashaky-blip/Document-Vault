@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — Document</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="masthead">
+      <h1>The <span class="stamp">Vault</span></h1>
+      <div class="user-tag">
+        <span id="user-email"></span>
+        <button class="btn-ghost" id="logout-btn">Log out</button>
+      </div>
+    </div>
+
+    <a href="/library.html" class="back-link">&larr; Back to library</a>
+
+    <div class="doc-header">
+      <div>
+        <h2 id="doc-title">Loading…</h2>
+        <div class="meta-line" id="doc-meta"></div>
+      </div>
+      <div class="actions-row">
+        <a class="btn btn-ghost" id="download-link" href="#">Download</a>
+        <button class="btn-danger" id="delete-btn">Delete</button>
+      </div>
+    </div>
+
+    <div class="text-panel" id="text-panel">Loading extracted text…</div>
+
+    <div class="ask-panel">
+      <h3>Ask this document</h3>
+      <div class="ask-row">
+        <input type="text" id="question-input" placeholder="e.g. What does section 3 say about liability?">
+        <button class="btn-primary" id="ask-btn" style="width:auto;">Ask</button>
+      </div>
+      <div id="answer-area"></div>
+    </div>
+  </div>
+
+  <script src="/static/js/toast.js"></script>
+  <script src="/static/js/document.js"></script>
+</body>
+</html>

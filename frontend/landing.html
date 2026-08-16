@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — A Private Archive for Your Documents</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/landing.css">
+</head>
+<body class="landing-body">
+
+  <header class="landing-nav">
+    <div class="landing-nav-inner">
+      <div class="landing-logo">The <span class="stamp">Vault</span></div>
+      <div class="landing-nav-actions">
+        <a href="/index.html" class="btn-ghost">Log in</a>
+        <a href="/index.html?mode=signup" class="btn-primary">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow mono">DOCUMENT VAULT · RAG-POWERED</div>
+        <h1>A private archive<br>for your documents.</h1>
+        <p class="hero-sub">
+          Upload PDFs, browse a searchable library, and ask natural-language
+          questions answered directly from your own files — with authentication
+          and authorization built to keep every document strictly yours.
+        </p>
+        <div class="hero-actions">
+          <a href="/index.html?mode=signup" class="btn-primary hero-cta">Get started free</a>
+          <a href="/index.html" class="btn-ghost hero-cta">I already have an account</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="features-inner">
+        <div class="section-label">What it does</div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">&#128196;</div>
+            <h3>Upload &amp; extract</h3>
+            <p>Drop in a PDF and its text is extracted automatically, page by page, and indexed the moment it lands in your library.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">&#128269;</div>
+            <h3>Ask your documents</h3>
+            <p>Retrieval-augmented question answering finds the most relevant passages and answers strictly from your own files — with citations back to the exact page.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">&#128193;</div>
+            <h3>A real library</h3>
+            <p>Every upload is catalogued with size, page count, and timestamp, so your archive stays organized as it grows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="security">
+      <div class="security-inner">
+        <div class="section-label">How it stays secure</div>
+        <h2>Built with the assumption that documents are private.</h2>
+        <div class="security-grid">
+          <div class="security-item">
+            <h4>HttpOnly session cookies</h4>
+            <p>Your session token is never exposed to JavaScript, which closes off the most common way tokens get stolen through malicious scripts.</p>
+          </div>
+          <div class="security-item">
+            <h4>Password hashing, not storage</h4>
+            <p>Passwords are hashed with bcrypt before they ever touch the database — your actual password is never stored, anywhere.</p>
+          </div>
+          <div class="security-item">
+            <h4>Strict per-user isolation</h4>
+            <p>Every document, chunk, and query is scoped to your account at the database level, not just hidden in the interface — other users' files are structurally unreachable from your account.</p>
+          </div>
+          <div class="security-item">
+            <h4>No ID guessing</h4>
+            <p>Requesting a document that isn't yours returns the same "not found" response as one that doesn't exist, so document IDs can't be probed to discover what other people have uploaded.</p>
+          </div>
+          <div class="security-item">
+            <h4>Validated uploads</h4>
+            <p>Files are checked by both extension and file signature, and capped in size, before anything is written to disk.</p>
+          </div>
+          <div class="security-item">
+            <h4>Grounded answers</h4>
+            <p>The question-answering assistant is instructed to answer only from the excerpts retrieved from your documents, and to say so plainly when it doesn't have enough information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="cta-band-inner">
+        <h2>Start your archive.</h2>
+        <a href="/index.html?mode=signup" class="btn-primary hero-cta">Create a free account</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-footer">
+    <div class="landing-footer-inner mono">The Vault — a private archive for your documents.</div>
+  </footer>
+
+  <script>
+    // If already logged in, skip the pitch and go straight to the library.
+    fetch("/api/auth/me", { credentials: "include" })
+      .then((r) => (r.ok ? (window.location.href = "/library.html") : null))
+      .catch(() => {});
+  </script>
+</body>
+</html>

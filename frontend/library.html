@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — Library</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="masthead">
+      <h1>The <span class="stamp">Vault</span></h1>
+      <div class="user-tag">
+        <span id="user-email"></span>
+        <button class="btn-ghost" id="logout-btn">Log out</button>
+      </div>
+    </div>
+
+    <div class="upload-panel" id="upload-panel">
+      <div class="hint">Upload a PDF (max 20 MB), or drag one in. Text is extracted automatically and indexed for the Ask panel on each document.</div>
+      <div class="drop-hint">Drop to upload &darr;</div>
+      <input type="file" id="file-input" accept="application/pdf">
+      <button class="btn-primary" id="upload-btn" style="width:auto;">Upload</button>
+    </div>
+
+    <div class="section-label">Your documents</div>
+    <ul class="doc-list" id="doc-list"></ul>
+    <div class="empty-state" id="empty-state" style="display:none;">No documents yet — upload your first PDF above.</div>
+  </div>
+
+  <script src="/static/js/toast.js"></script>
+  <script src="/static/js/library.js"></script>
+</body>
+</html>
