@@ -31,7 +31,7 @@ if (initialParams.get("mode") === "signup") {
 
 // If already logged in, skip straight to the library
 fetch("/api/auth/me", { credentials: "include" })
-  .then((r) => (r.ok ? (window.location.href = "/library.html") : null))
+  .then((r) => (r.ok ? window.location.replace("/library.html") : null))
   .catch(() => {});
 
 switchBtn.addEventListener("click", () => {
@@ -68,7 +68,7 @@ form.addEventListener("submit", async (e) => {
       showError(data.error || "Something went wrong");
       return;
     }
-    window.location.href = "/library.html";
+    window.location.replace("/library.html");
   } catch (err) {
     showError("Could not reach the server. Please try again.");
   } finally {

@@ -43,8 +43,8 @@ function renderSkeleton(count = 3) {
 
 async function requireAuth() {
   const res = await fetch("/api/auth/me", { credentials: "include" });
-  if (!res.ok) {
-    window.location.href = "/index.html";
+if (!res.ok) {
+    window.location.replace("/index.html");
     return null;
   }
   const data = await res.json();
@@ -56,7 +56,7 @@ async function loadDocuments() {
   renderSkeleton();
   const res = await fetch("/api/documents", { credentials: "include" });
   if (res.status === 401) {
-    window.location.href = "/index.html";
+    window.location.replace("/index.html");
     return;
   }
   const data = await res.json();
@@ -185,7 +185,7 @@ uploadPanel.addEventListener("drop", (e) => {
 
 logoutBtn.addEventListener("click", async () => {
   await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
-  window.location.href = "/index.html";
+  window.location.replace("/index.html");
 });
 
 (async function init() {

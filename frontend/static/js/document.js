@@ -38,7 +38,7 @@ function renderTextSkeleton() {
 async function requireAuth() {
   const res = await fetch("/api/auth/me", { credentials: "include" });
   if (!res.ok) {
-    window.location.href = "/index.html";
+      window.location.replace("/index.html");
     return null;
   }
   const data = await res.json();
@@ -54,7 +54,7 @@ async function loadDocument() {
   renderTextSkeleton();
   const res = await fetch(`/api/documents/${docId}`, { credentials: "include" });
   if (res.status === 401) {
-    window.location.href = "/index.html";
+       window.location.replace("/index.html");
     return;
   }
   if (res.status === 404) {
@@ -83,7 +83,7 @@ deleteBtn.addEventListener("click", async () => {
     return;
   }
   showToast("Document deleted", "success");
-  window.location.href = "/library.html";
+     window.location.replace("/index.html");
 });
 
 askBtn.addEventListener("click", async () => {
@@ -132,7 +132,7 @@ questionInput.addEventListener("keydown", (e) => {
 
 logoutBtn.addEventListener("click", async () => {
   await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
-  window.location.href = "/index.html";
+     window.location.replace("/index.html");
 });
 
 (async function init() {

@@ -106,8 +106,8 @@
 
   <script>
     // If already logged in, skip the pitch and go straight to the library.
-    fetch("/api/auth/me", { credentials: "include" })
-      .then((r) => (r.ok ? (window.location.href = "/library.html") : null))
+   fetch("/api/auth/me", { credentials: "include" })
+      .then((r) => (r.ok ? window.location.replace("/library.html") : null))
       .catch(() => {});
   </script>
 </body>
